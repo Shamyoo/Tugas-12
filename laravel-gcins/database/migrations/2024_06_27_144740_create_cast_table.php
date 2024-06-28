@@ -4,18 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateCastsTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('cast', function (Blueprint $table) {
+        Schema::create('casts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama', 255);
+            $table->string('name', 255);
             $table->text('bio');
             $table->integer('umur');
+            $table->string('updated_at', 255);
+            $table->string('created_at', 255);
         });
     }
 
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cast');
+        Schema::dropIfExists('casst');
     }
 };
